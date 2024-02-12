@@ -54,7 +54,7 @@ class Movie(models.Model):
     directors = models.ManyToManyField(Director, verbose_name='Режиссер')
     screenwriter = models.ManyToManyField(ScreenWriter, verbose_name='Сценарист')
     premiere = models.DateTimeField(verbose_name='Премьера')
-    time = models.CharField(verbose_name='Время')
+    time = models.CharField(verbose_name='Время', max_length=30)
 
     def __str__(self):
         return self.title
