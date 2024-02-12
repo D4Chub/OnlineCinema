@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <script src="https://fontawesome.com/icons/magnifying-glass?f=classic&s=solid"></script>
+  <title>Online cinema</title>
+</head>
+<body>
+
+    <header>
+        <div class="container-menu">
+            <div class="logo">
+                <!-- <img src="images/views.png" alt=""> -->
+            </div>
+            <div class="nav-items">
+                <a href="#">Фильмы</a>
+                <a href="#">Сериалы</a>
+                <a href="#">Мультфильмы</a>
+                <a href="#">Аниме</a>
+            </div>
+            <div class="search_block">
+                <form>
+                  <input type="text" name=text" class="search" placeholder="Поиск">
+                  <input type="submit" name="submit" class="submit" value="">
+                </form>
+              </div>
+            <div class="button">
+                <a href="#">Вход</a>
+            </div>
+        </div>
+    </header>
+
+
+    <main>
+        <div class="container">
+            <div class="movies">
+                <div class="movie">
+                    <div class="movie__cover-inner">
+                        <img src="https://avatars.mds.yandex.net/get-kinopoisk-image/4486454/c5292109-642c-4ab0-894a-cc304e1bcec4/300x450" alt="">
+                        <div class="movie__cover--darkened"></div>
+                    </div>
+                    <div class="movie__info">
+                        <div class="movie__title">title</div>
+                        <div class="movie__category">category</div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
