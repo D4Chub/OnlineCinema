@@ -49,7 +49,7 @@ body {
 .movies {
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-around; */
+    justify-content: space-around;
     float: left;
     flex-direction: row;
 }
@@ -112,6 +112,8 @@ body {
 .movie__category {
     font-size: 14px;
     color: #ffd80e;
+    display: inline-block;
+    margin-right: -10px;
 }
 
 /* .movie__average {

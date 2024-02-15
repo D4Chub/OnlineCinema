@@ -46,14 +46,14 @@ class Actor(models.Model):
 
 class Movie(models.Model):
     title = models.CharField(verbose_name='Название', max_length=100)
-    poster = models.ImageField(verbose_name='Постер', upload_to='images/thumbnails/%Y/%m/%d/')
+    poster = models.ImageField(verbose_name='Постер', upload_to='posters/')
     description = models.TextField(verbose_name='Описание')
     year = models.IntegerField(verbose_name='Год производства')
     genre = models.ManyToManyField(Genre, verbose_name='Жанр')
     actor = models.ManyToManyField(Actor, verbose_name='В главных ролях')
     directors = models.ManyToManyField(Director, verbose_name='Режиссер')
     screenwriter = models.ManyToManyField(ScreenWriter, verbose_name='Сценарист')
-    premiere = models.DateTimeField(verbose_name='Премьера')
+    premiere = models.DateField(verbose_name='Премьера')
     time = models.CharField(verbose_name='Время', max_length=30)
 
     def __str__(self):
