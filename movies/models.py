@@ -47,10 +47,21 @@ class Actor(models.Model):
         verbose_name_plural = 'Актеры'
 
 
+class Artist(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Художник'
+        verbose_name_plural = 'Художники'
+
+
 class Movie(models.Model):
     title = models.CharField(verbose_name='Название', max_length=100)
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL", null=True)
-    poster = models.ImageField(verbose_name='Постер', upload_to='posters/')
+    poster = models.ImageField(verbose_name='Постер', upload_to='posters/movie')
     description = models.TextField(verbose_name='Описание')
     year = models.IntegerField(verbose_name='Год производства')
     genre = models.ManyToManyField(Genre, verbose_name='Жанр')
@@ -70,6 +81,79 @@ class Movie(models.Model):
         verbose_name = 'Фильм'
         verbose_name_plural = 'Фильмы'
 
+
+class Series(models.Model):
+    title = models.CharField(verbose_name='Название', max_length=100)
+    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL", null=True)
+    poster = models.ImageField(verbose_name='Постер', upload_to='posters/series')
+    description = models.TextField(verbose_name='Описание')
+    year = models.IntegerField(verbose_name='Год производства')
+    genre = models.ManyToManyField(Genre, verbose_name='Жанр')
+    actor = models.ManyToManyField(Actor, verbose_name='В главных ролях')
+    directors = models.ManyToManyField(Director, verbose_name='Режиссер')
+    screenwriter = models.ManyToManyField(ScreenWriter, verbose_name='Сценарист')
+    premiere = models.DateField(verbose_name='Премьера')
+    time = models.CharField(verbose_name='Время', max_length=30)
+
+    def get_absolute_url(self):
+        return reverse('show_movie', kwargs={'movie_slug': self.slug})
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Фильм'
+        verbose_name_plural = 'Фильмы'
+
+
+class Anime(models.Model):
+    title = models.CharField(verbose_name='Название', max_length=100)
+    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL", null=True)
+    poster = models.ImageField(verbose_name='Постер', upload_to='posters/anime')
+    description = models.TextField(verbose_name='Описание')
+    year = models.IntegerField(verbose_name='Год производства')
+    genre = models.ManyToManyField(Genre, verbose_name='Жанр')
+    actor = models.ManyToManyField(Actor, verbose_name='В главных ролях')
+    directors = models.ManyToManyField(Director, verbose_name='Режиссер')
+    screenwriter = models.ManyToManyField(ScreenWriter, verbose_name='Сценарист')
+    artist = models.ManyToManyField(Artist, verbose_name='Художник')
+    premiere = models.DateField(verbose_name='Премьера')
+    time = models.CharField(verbose_name='Время', max_length=30)
+
+    def get_absolute_url(self):
+        return reverse('show_movie', kwargs={'movie_slug': self.slug})
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Аниме'
+        verbose_name_plural = 'Аниме'
+
+
+class Mult(models.Model):
+    title = models.CharField(verbose_name='Название', max_length=100)
+    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL", null=True)
+    poster = models.ImageField(verbose_name='Постер', upload_to='posters/anime')
+    description = models.TextField(verbose_name='Описание')
+    year = models.IntegerField(verbose_name='Год производства')
+    genre = models.ManyToManyField(Genre, verbose_name='Жанр')
+    actor = models.ManyToManyField(Actor, verbose_name='В главных ролях')
+    directors = models.ManyToManyField(Director, verbose_name='Режиссер')
+    screenwriter = models.ManyToManyField(ScreenWriter, verbose_name='Сценарист')
+    artist = models.ManyToManyField(Artist, verbose_name='Художник')
+    premiere = models.DateField(verbose_name='Премьера')
+    time = models.CharField(verbose_name='Время', max_length=30)
+
+    def get_absolute_url(self):
+        return reverse('show_movie', kwargs={'movie_slug': self.slug})
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Мультфильм'
+        verbose_name_plural = 'Мультфильмы'
 
 
 
