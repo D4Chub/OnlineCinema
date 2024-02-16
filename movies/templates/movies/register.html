@@ -67,21 +67,30 @@ xmlns:xlink="http://www.w3.org/1999/xlink" style="position: absolute">
 
 <div class="wrapper">
   <div class="header">
-    <h3 class="sign-in">Войти</h3>
-    <div class="button">
-        <a href="{% url 'register' %}">Регистрация</a>
-    </div>
+    <h3 class="sign-in">Регистрация</h3>
+        <div class="button">
+            <a href="{% url 'login' %}">Войти</a>
+        </div>
   </div>
    <div class="clear"></div>
   <form action="#">
       <div>
+        <input class="user-input" type="text" name="name" id="name" placeholder="Имя"  />
+      </div>
+      <div>
+        <input class="user-input" type="text" name="name" id="name" placeholder="Фамилия"  />
+      </div>
+      <div>
         <input class="user-input" type="text" name="name" id="name" placeholder="Email"  />
       </div>
       <div>
-        <input type="password" name="name" id="name" placeholder="Пароль" />
+        <input type="password" name="name" id="name" placeholder="Придумайте пароль" />
+      </div>
+      <div>
+        <input type="password" name="name" id="name" placeholder="Повторите пароль" />
       </div>
      <div>
-      <input type="submit" value="Войти" />
+      <input type="submit" value="Зарегистрироваться" />
     </div>
   </form>
 </div>

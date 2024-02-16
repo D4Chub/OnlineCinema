@@ -38,3 +38,10 @@ class Login(View):
 
     def get(self, request):
         return render(request, self.template_name)
+
+
+class Register(View):
+    template_name = 'movies/register.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
