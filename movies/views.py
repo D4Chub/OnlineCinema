@@ -13,6 +13,7 @@ def home(request):
 
 class ShowMovie(View):
     template_name = 'movies/movie_info.html'
+
     def get(self, request, movie_slug):
         movie_info = Movie.objects.get(slug=movie_slug)
         movie = get_object_or_404(Movie, slug=movie_slug)
@@ -30,3 +31,10 @@ class ShowMovie(View):
             'screenwriter': screenwriter,
         }
         return render(request, self.template_name, context=context)
+
+
+class Login(View):
+    template_name = 'movies/login.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
