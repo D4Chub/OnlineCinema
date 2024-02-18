@@ -96,7 +96,7 @@ class Series(models.Model):
     time = models.CharField(verbose_name='Время', max_length=30)
 
     def get_absolute_url(self):
-        return reverse('show_series', kwargs={'series_slug': self.slug})
+        return reverse('series')
 
     def __str__(self):
         return self.title
@@ -118,9 +118,6 @@ class Anime(models.Model):
     screenwriter = models.ManyToManyField(ScreenWriter, verbose_name='Сценарист')
     premiere = models.DateField(verbose_name='Премьера')
     time = models.CharField(verbose_name='Время', max_length=30)
-
-    def get_absolute_url(self):
-        return reverse('show_anime', kwargs={'anime_slug': self.slug})
 
     def __str__(self):
         return self.title
@@ -144,7 +141,7 @@ class Mult(models.Model):
     time = models.CharField(verbose_name='Время', max_length=30)
 
     def get_absolute_url(self):
-        return reverse('show_mult', kwargs={'mult_slug': self.slug})
+        return reverse('mult')
 
     def __str__(self):
         return self.title

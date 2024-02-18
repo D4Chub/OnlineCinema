@@ -5,10 +5,17 @@ from django.views import View
 from movies.models import *
 
 
-def home(request):
-    movies = Movie.objects.all()
-    genre = Genre.objects.all()
-    return render(request, 'movies/home.html', {'movies': movies, 'genre': genre})
+class Home(View):
+    template_name = 'movies/home.html'
+
+    def get(self, request):
+        movies = Movie.objects.all()
+        genre = Genre.objects.all()
+        context = {
+            'movies': movies,
+            'genre': genre,
+        }
+        return render(request, self.template_name, context)
 
 
 class ShowMovie(View):
@@ -33,25 +40,43 @@ class ShowMovie(View):
         return render(request, self.template_name, context=context)
 
 
-class ShowSeries(View):
+class CatSeries(View):
     template_name = 'movies/series.html'
 
-    def get(self, request, series_slug):
-        return render(request, self.template_name)
+    def get(self, request):
+        series = get_object_or_404(Series)
+        genre = Genre.objects.all()
+        context = {
+            'series': [series],
+            'genre': genre,
+        }
+        return render(request, self.template_name, context)
 
 
-class ShowAnime(View):
+class CatAnime(View):
     template_name = 'movies/anime.html'
 
-    def get(self, request, series_slug):
-        return render(request, self.template_name)
+    def get(self, request):
+        anime = Anime.objects.all()
+        genre = Genre.objects.all()
+        context = {
+            'anime': anime,
+            'genre': genre,
+        }
+        return render(request, self.template_name, context)
 
 
-class ShowMult(View):
+class CatMult(View):
     template_name = 'movies/mult.html'
 
-    def get(self, request, series_slug):
-        return render(request, self.template_name)
+    def get(self, request):
+        mult = get_object_or_404(Mult)
+        genre = Genre.objects.all()
+        context = {
+            'mult': [mult],
+            'genre': genre,
+        }
+        return render(request, self.template_name, context)
 
 
 class Login(View):

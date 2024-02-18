@@ -1,10 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'movies/home.html' %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
 
+{% block content %}
+    <main>
+        <div class="container">
+            <div class="movies">
+                {% for a in anime %}
+                <div class="movie">
+                    <a href="{{ a.get_absolute_url }}">
+                        <div class="movie__cover-inner">
+                            <img src="{{ a.poster.url }}" alt="">
+                            <div class="movie__cover--darkened"></div>
+                        </div>
+                    </a>
+                    <div class="movie__info">
+                        <a href="{{ a.get_absolute_url }}" class="movie__title-link">
+                            <div class="movie__title">{{ a.title }}</div>
+                        </a>
+                        <div class="movie__category">
+                            {% for g in a.genre.all %}
+                                {{ g.name }}{% if not forloop.last %},{% endif %}
+                            {% endfor %}</div>
+                    </div>
+                </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </main>
+    {% endblock %}
 </body>
 </html>
