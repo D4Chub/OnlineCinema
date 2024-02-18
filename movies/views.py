@@ -33,6 +33,27 @@ class ShowMovie(View):
         return render(request, self.template_name, context=context)
 
 
+class ShowSeries(View):
+    template_name = 'movies/series.html'
+
+    def get(self, request, series_slug):
+        return render(request, self.template_name)
+
+
+class ShowAnime(View):
+    template_name = 'movies/anime.html'
+
+    def get(self, request, series_slug):
+        return render(request, self.template_name)
+
+
+class ShowMult(View):
+    template_name = 'movies/mult.html'
+
+    def get(self, request, series_slug):
+        return render(request, self.template_name)
+
+
 class Login(View):
     template_name = 'movies/login.html'
 
