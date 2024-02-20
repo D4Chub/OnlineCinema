@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from rest_framework import generics
 from django.shortcuts import render, get_object_or_404
 from django.views import View
 
@@ -11,9 +11,12 @@ class Home(View):
     def get(self, request):
         movies = Movie.objects.all()
         genre = Genre.objects.all()
+        cat = Category.objects.all()
+
         context = {
             'movies': movies,
             'genre': genre,
+            'cat': cat
         }
         return render(request, self.template_name, context)
 
@@ -36,46 +39,24 @@ class ShowMovie(View):
             'actor': actor,
             'director': director,
             'screenwriter': screenwriter,
+
         }
         return render(request, self.template_name, context=context)
 
 
-class CatSeries(View):
-    template_name = 'movies/series.html'
+class ShowCategory(View):
+    template_name = 'movies/home.html'
 
-    def get(self, request):
-        series = get_object_or_404(Series)
-        genre = Genre.objects.all()
+    def get(self, request, cat_slug):
+        category = Category.objects.get(slug=cat_slug)
+        movies = Movie.objects.filter(category=category)
+        cat = Category.objects.all()
         context = {
-            'series': [series],
-            'genre': genre,
+            'movies': movies,
+            'cat': cat,
+
         }
-        return render(request, self.template_name, context)
 
-
-class CatAnime(View):
-    template_name = 'movies/anime.html'
-
-    def get(self, request):
-        anime = Anime.objects.all()
-        genre = Genre.objects.all()
-        context = {
-            'anime': anime,
-            'genre': genre,
-        }
-        return render(request, self.template_name, context)
-
-
-class CatMult(View):
-    template_name = 'movies/mult.html'
-
-    def get(self, request):
-        mult = get_object_or_404(Mult)
-        genre = Genre.objects.all()
-        context = {
-            'mult': [mult],
-            'genre': genre,
-        }
         return render(request, self.template_name, context)
 
 
@@ -91,3 +72,4 @@ class Register(View):
 
     def get(self, request):
         return render(request, self.template_name)
+

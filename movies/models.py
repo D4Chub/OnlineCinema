@@ -15,7 +15,7 @@ class Genre(models.Model):
 
 
 class Director(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name
@@ -26,7 +26,7 @@ class Director(models.Model):
 
 
 class ScreenWriter(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name
@@ -37,7 +37,7 @@ class ScreenWriter(models.Model):
 
 
 class Actor(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name
@@ -48,7 +48,11 @@ class Actor(models.Model):
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL', null=True)
+
+    def get_absolute_url(self):
+        return reverse('category', kwargs={'cat_slug': self.slug})
 
     def __str__(self):
         return self.name
@@ -61,9 +65,10 @@ class Category(models.Model):
 class Movie(models.Model):
     title = models.CharField(verbose_name='Название', max_length=100)
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL", null=True)
-    poster = models.ImageField(verbose_name='Постер', upload_to='posters/movie')
+    poster = models.ImageField(verbose_name='Постер', upload_to='posters')
     description = models.TextField(verbose_name='Описание')
-    year = models.IntegerField(verbose_name='Год производства')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Категория', null=True)
+    year = models.CharField(max_length=50, verbose_name='Год производства')
     genre = models.ManyToManyField(Genre, verbose_name='Жанр')
     actor = models.ManyToManyField(Actor, verbose_name='В главных ролях')
     directors = models.ManyToManyField(Director, verbose_name='Режиссер')
@@ -81,72 +86,4 @@ class Movie(models.Model):
         verbose_name = 'Фильмы'
         verbose_name_plural = 'Фильмы'
 
-
-class Series(models.Model):
-    title = models.CharField(verbose_name='Название', max_length=100)
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL", null=True)
-    poster = models.ImageField(verbose_name='Постер', upload_to='posters/series')
-    description = models.TextField(verbose_name='Описание')
-    year = models.CharField(max_length=25, verbose_name='Год производства')
-    genre = models.ManyToManyField(Genre, verbose_name='Жанр')
-    actor = models.ManyToManyField(Actor, verbose_name='В главных ролях')
-    directors = models.ManyToManyField(Director, verbose_name='Режиссер')
-    screenwriter = models.ManyToManyField(ScreenWriter, verbose_name='Сценарист')
-    premiere = models.DateField(verbose_name='Премьера')
-    time = models.CharField(verbose_name='Время', max_length=30)
-
-    def get_absolute_url(self):
-        return reverse('series')
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        verbose_name = 'Сериал'
-        verbose_name_plural = 'Сериалы'
-
-
-class Anime(models.Model):
-    title = models.CharField(verbose_name='Название', max_length=100)
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL", null=True)
-    poster = models.ImageField(verbose_name='Постер', upload_to='posters/anime')
-    description = models.TextField(verbose_name='Описание')
-    year = models.CharField(max_length=25, verbose_name='Год производства')
-    genre = models.ManyToManyField(Genre, verbose_name='Жанр')
-    actor = models.ManyToManyField(Actor, verbose_name='В главных ролях')
-    directors = models.ManyToManyField(Director, verbose_name='Режиссер')
-    screenwriter = models.ManyToManyField(ScreenWriter, verbose_name='Сценарист')
-    premiere = models.DateField(verbose_name='Премьера')
-    time = models.CharField(verbose_name='Время', max_length=30)
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        verbose_name = 'Аниме'
-        verbose_name_plural = 'Аниме'
-
-
-class Mult(models.Model):
-    title = models.CharField(verbose_name='Название', max_length=100)
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL", null=True)
-    poster = models.ImageField(verbose_name='Постер', upload_to='posters/mult')
-    description = models.TextField(verbose_name='Описание')
-    year = models.IntegerField(verbose_name='Год производства')
-    genre = models.ManyToManyField(Genre, verbose_name='Жанр')
-    actor = models.ManyToManyField(Actor, verbose_name='В главных ролях')
-    directors = models.ManyToManyField(Director, verbose_name='Режиссер')
-    screenwriter = models.ManyToManyField(ScreenWriter, verbose_name='Сценарист')
-    premiere = models.DateField(verbose_name='Премьера')
-    time = models.CharField(verbose_name='Время', max_length=30)
-
-    def get_absolute_url(self):
-        return reverse('mult')
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        verbose_name = 'Мультфильм'
-        verbose_name_plural = 'Мультфильмы'
 
