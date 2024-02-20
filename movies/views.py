@@ -31,7 +31,7 @@ class ShowMovie(View):
         actor = Actor.objects.all()
         director = Director.objects.all()
         screenwriter = Director.objects.all()
-
+        cat = Category.objects.all()
         context = {
             'movie': movie,
             'movie_info': [movie_info],
@@ -39,6 +39,7 @@ class ShowMovie(View):
             'actor': actor,
             'director': director,
             'screenwriter': screenwriter,
+            'cat': cat
 
         }
         return render(request, self.template_name, context=context)

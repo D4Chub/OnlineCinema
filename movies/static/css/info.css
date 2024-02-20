@@ -9,6 +9,8 @@
 .container-menu {
     align-items: center;
     display: flex;
+    max-width: 1400px;
+    transform: translate(80px);
 
 }
 
@@ -132,7 +134,7 @@ body {
 
 .nav-items {
     justify-content: space-between;
-    transform: translate(260px);
+    transform: translate(235px);
     display: flex;
 
 }
@@ -184,7 +186,7 @@ body {
     height: 50px;
     display: flex;
     margin: 0 auto;
-    transform: translate(300px);
+    transform: translate(285px);
 
 }
 input.search {
@@ -275,3 +277,9 @@ input:active, :hover, :focus {
     text-align: center;
 }
 
+.logo img{
+    height: 50px;
+    width: 110px;
+    transform: translate(-153px, -70px);
+    position: fixed;
+}
