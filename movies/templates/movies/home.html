@@ -15,9 +15,11 @@
 
     <header>
         <div class="container-menu">
-            <div class="logo">
-                <!-- <img src="images/views.png" alt=""> -->
-            </div>
+            <a href="{% url 'home' %}">
+                <div class="logo">
+                     <img src="{% static 'img/logo.png' %}" alt="">
+                </div>
+            </a>
             <div class="nav-items">
                 {% for c in cat %}
                 <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>

@@ -9,7 +9,8 @@
 .container-menu {
     align-items: center;
     display: flex;
-
+    max-width: 1400px;
+    transform: translate(80px);
 }
 
 body {
@@ -49,7 +50,7 @@ body {
 .movies {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    /*justify-content: space-around;*/
     float: left;
     flex-direction: row;
 }
@@ -143,7 +144,7 @@ body {
 
 .nav-items {
     justify-content: space-between;
-    transform: translate(260px);
+    transform: translate(235px);
     display: flex;
 
 }
@@ -195,7 +196,7 @@ body {
     height: 50px;
     display: flex;
     margin: 0 auto;
-    transform: translate(300px);
+    transform: translate(285px);
 
 }
 input.search {
@@ -233,4 +234,11 @@ input:active, :hover, :focus {
 .movie__title-link {
     text-decoration: none;
     color: inherit;
+}
+
+.logo img{
+    height: 50px;
+    width: 110px;
+    transform: translate(-153px, -70px);
+    position: fixed;
 }
