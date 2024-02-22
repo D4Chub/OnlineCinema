@@ -51,11 +51,12 @@ class Actor(Person):
 
 
 class Category(Person):
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL', null=True)
 
     class Meta:
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
+
+    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL', null=True)
 
     def get_absolute_url(self):
         return reverse('category', kwargs={'cat_slug': self.slug})
@@ -65,6 +66,11 @@ class Category(Person):
 
 
 class Movie(models.Model):
+
+    class Meta:
+        verbose_name = 'Фильмы'
+        verbose_name_plural = 'Фильмы'
+
     title = models.CharField(verbose_name='Название', max_length=100)
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL", null=True)
     poster = models.ImageField(verbose_name='Постер', upload_to='posters')
@@ -79,10 +85,6 @@ class Movie(models.Model):
     time = models.CharField(verbose_name='Время', max_length=30)
     time_create = models.DateTimeField(auto_now_add=True, null=True)
     time_update = models.DateTimeField(auto_now=True, null=True)
-
-    class Meta:
-        verbose_name = 'Фильмы'
-        verbose_name_plural = 'Фильмы'
 
     def get_absolute_url(self):
         return reverse('show_movie', kwargs={'movie_slug': self.slug})
