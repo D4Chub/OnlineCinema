@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import *
+from movies.models import *
 
 
+@admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'poster', 'time')
     list_display_links = ('id', 'title')
@@ -9,39 +10,37 @@ class MovieAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
 
+@admin.register(Genre)
 class GenreAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')
     list_display_links = ('id', 'name')
 
 
+@admin.register(Director)
 class DirectorAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')
     list_display_links = ('id', 'name')
 
 
+@admin.register(Actor)
 class ActorAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')
     list_display_links = ('id', 'name')
 
 
+@admin.register(ScreenWriter)
 class ScreenWriterAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')
     list_display_links = ('id', 'name')
 
 
+@admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')
     list_display_links = ('id', 'name')
     search_fields = ('name',)
     prepopulated_fields = {'slug': ('name',)}
 
-
-admin.site.register(Genre, GenreAdmin)
-admin.site.register(Director, DirectorAdmin)
-admin.site.register(Actor, ActorAdmin)
-admin.site.register(ScreenWriter, ScreenWriterAdmin)
-admin.site.register(Movie, MovieAdmin)
-admin.site.register(Category, CategoryAdmin)
 
 
 

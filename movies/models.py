@@ -3,63 +3,65 @@ from django.urls import reverse
 from django.utils.text import slugify
 
 
-class Genre(models.Model):
+class Person(models.Model):
     name = models.CharField(max_length=50)
 
-    def __str__(self):
-        return self.name
+    class Meta:
+        abstract = True
+
+
+class Genre(Person):
 
     class Meta:
         verbose_name = 'Жанр'
         verbose_name_plural = 'Жанры'
 
-
-class Director(models.Model):
-    name = models.CharField(max_length=50)
-
     def __str__(self):
         return self.name
+
+
+class Director(Person):
 
     class Meta:
         verbose_name = 'Режиссер'
         verbose_name_plural = 'Режиссеры'
 
-
-class ScreenWriter(models.Model):
-    name = models.CharField(max_length=50)
-
     def __str__(self):
         return self.name
+
+
+class ScreenWriter(Person):
 
     class Meta:
         verbose_name = 'Сценарист'
         verbose_name_plural = 'Сценаристы'
 
-
-class Actor(models.Model):
-    name = models.CharField(max_length=50)
-
     def __str__(self):
         return self.name
+
+
+class Actor(Person):
 
     class Meta:
         verbose_name = 'Актер'
         verbose_name_plural = 'Актеры'
 
+    def __str__(self):
+        return self.name
 
-class Category(models.Model):
-    name = models.CharField(max_length=50)
+
+class Category(Person):
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL', null=True)
+
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
 
     def get_absolute_url(self):
         return reverse('category', kwargs={'cat_slug': self.slug})
 
     def __str__(self):
         return self.name
-
-    class Meta:
-        verbose_name = 'Категория'
-        verbose_name_plural = 'Категории'
 
 
 class Movie(models.Model):
@@ -75,15 +77,15 @@ class Movie(models.Model):
     screenwriter = models.ManyToManyField(ScreenWriter, verbose_name='Сценарист')
     premiere = models.DateField(verbose_name='Премьера')
     time = models.CharField(verbose_name='Время', max_length=30)
+    time_create = models.DateTimeField(auto_now_add=True, null=True)
+    time_update = models.DateTimeField(auto_now=True, null=True)
+
+    class Meta:
+        verbose_name = 'Фильмы'
+        verbose_name_plural = 'Фильмы'
 
     def get_absolute_url(self):
         return reverse('show_movie', kwargs={'movie_slug': self.slug})
 
     def __str__(self):
         return self.title
-
-    class Meta:
-        verbose_name = 'Фильмы'
-        verbose_name_plural = 'Фильмы'
-
-
