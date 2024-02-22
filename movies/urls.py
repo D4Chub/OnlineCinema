@@ -7,5 +7,6 @@ urlpatterns = [
     path('category/<slug:cat_slug>', ShowCategory.as_view(), name='category'),
     path('login/', Login.as_view(), name='login'),
     path('register/', Register.as_view(), name='register'),
+    path('search/', Search.as_view(), name='search'),
 
 ]

@@ -26,8 +26,8 @@
                 {% endfor %}
             </div>
             <div class="search_block">
-                <form>
-                  <input type="text" name=text" class="search" placeholder="Поиск">
+                <form action="{% url 'search' %}" method="get">
+                  <input type="text" name="q" class="search" placeholder="Поиск">
                   <input type="submit" name="submit" class="submit" value="">
                 </form>
               </div>

@@ -1,3 +1,4 @@
+from django.views.generic import ListView
 from rest_framework import generics
 from django.shortcuts import render, get_object_or_404
 from django.views import View
@@ -74,3 +75,18 @@ class Register(View):
     def get(self, request):
         return render(request, self.template_name)
 
+
+class Search(ListView):
+    model = Movie
+    template_name = 'movies/movie_info.html'
+    context_object_name = 'movie_info'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        return Movie.objects.filter(title__icontains=query)
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['q'] = self.request.GET.get('q')
+        context['cat'] = Category.objects.all()
+        return context
