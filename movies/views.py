@@ -7,7 +7,7 @@ from movies.models import *
 
 
 class Home(View):
-    template_name = 'movies/home.html'
+    template_name = 'movies/index.html'
 
     def get(self, request):
         movies = Movie.objects.all()
@@ -23,7 +23,7 @@ class Home(View):
 
 
 class ShowMovie(View):
-    template_name = 'movies/movie_info.html'
+    template_name = 'movies/movie-info.html'
 
     def get(self, request, movie_slug):
         movie_info = Movie.objects.get(slug=movie_slug)
@@ -47,7 +47,7 @@ class ShowMovie(View):
 
 
 class ShowCategory(View):
-    template_name = 'movies/home.html'
+    template_name = 'movies/index.html'
 
     def get(self, request, cat_slug):
         category = Category.objects.get(slug=cat_slug)

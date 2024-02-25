@@ -78,6 +78,7 @@ class Movie(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Категория', null=True)
     year = models.CharField(max_length=50, verbose_name='Год производства')
     genre = models.ManyToManyField(Genre, verbose_name='Жанр')
+    trailer = models.URLField(verbose_name='Ссылка на трейлер', null=True)
     actor = models.ManyToManyField(Actor, verbose_name='В главных ролях')
     directors = models.ManyToManyField(Director, verbose_name='Режиссер')
     screenwriter = models.ManyToManyField(ScreenWriter, verbose_name='Сценарист')
