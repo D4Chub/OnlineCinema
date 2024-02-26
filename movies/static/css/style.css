@@ -15725,7 +15725,14 @@ button.owl-next {
 
 .w3l-grids .box16 img {
   width: 100%;
-  height: auto;
+}
+
+#about-img {
+    height: 250px;
+}
+
+#index-img {
+    height: 400px
 }
 
 .w3l-grids .box16 .box-content {
@@ -15834,7 +15841,7 @@ button.owl-next {
 }
 
 .w3l-grids a.title-gd {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 27px;
   font-weight: 700;
   text-transform: capitalize;

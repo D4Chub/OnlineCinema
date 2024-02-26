@@ -6,8 +6,7 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>ProShowz a Entertainment Category Bootstrap Responsive Website Template | Home
-	:: W3layouts</title>
+	<title>Gen Cinema</title>
 	<!-- Template CSS -->
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	<!-- Template CSS -->
@@ -40,7 +39,7 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto">
 							<li class="nav-item">
-								<a class="nav-link" href="index.html">Главная</a>
+								<a class="nav-link" href="{% url 'home' %}">Главная</a>
 							</li>
 							<li class="nav-item dropdown active">
 								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -54,20 +53,20 @@
 								</div>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="about.html">О нас</a>
+								<a class="nav-link" href="{% url 'about' %}">О нас</a>
 							</li>
 						</ul>
 	
 						<!--/search-right-->
 						<!--/search-right-->
 						<div class="search-right">
-							<a href="#search" class="btn search-hny mr-lg-3 mt-lg-0 mt-4" title="search">Search <span
+							<a href="#search" class="btn search-hny mr-lg-3 mt-lg-0 mt-4" title="search">Поиск <span
 									class="fa fa-search ml-3" aria-hidden="true"></span></a>
 							<!-- search popup -->
 							<div id="search" class="pop-overlay">
 								<div class="popup">
 									<form action="#" method="post" class="search-box">
-										<input type="search" placeholder="Search your Keyword" name="search"
+										<input type="search" placeholder="Название фильма" name="search"
 											required="required" autofocus="">
 										<button type="submit" class="btn"><span class="fa fa-search"
 												aria-hidden="true"></span></button>
@@ -112,18 +111,18 @@
 					<li>
 						<div class="slider-info banner-view bg bg2">
 							<div class="banner-info">
-								<h3>Latest Movie Trailers</h3>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<span class="over-para"> Consequuntur hic odio
-									voluptatem tenetur consequatur.</span></p>
+								<h3>Мстители</h3>
+								<p>"Мстители: Финал (2019)" - эпическое завершение саги, объединяющее
+									героев для борьбы с могущественным злом.</span></p>
 								<a href="#small-dialog1" class="popup-with-zoom-anim play-view1">
 									<span class="video-play-icon">
 										<span class="fa fa-play"></span>
 									</span>
-									<h6>Watch Trailer</h6>
+									<h6>Смотреть трейлер</h6>
 								</a>
 								<!-- dialog itself, mfp-hide class is required to make dialog hidden -->
 								<div id="small-dialog1" class="zoom-anim-dialog mfp-hide">
-									<iframe src="https://player.vimeo.com/video/358205676" allow="autoplay; fullscreen"
+									<iframe src="https://player.vimeo.com/video/782537327" allow="autoplay; fullscreen"
 										allowfullscreen=""></iframe>
 								</div>
 							</div>
@@ -134,18 +133,18 @@
 					<li>
 						<div class="slider-info  banner-view banner-top1 bg bg2">
 							<div class="banner-info">
-								<h3>Latest Online Movies</h3>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<span class="over-para"> Consequuntur hic odio
-									voluptatem tenetur consequatur.</span></p>
+								<h3>Оппенгеймер</h3>
+								<p>Фильм про физика и руководитель проекта "Манхэттен",
+									внесший вклад в ядерные технологии, сложная личность.</span></p>
 								<a href="#small-dialog2" class="popup-with-zoom-anim play-view1">
 									<span class="video-play-icon">
 										<span class="fa fa-play"></span>
 									</span>
-									<h6>Watch Trailer</h6>
+									<h6>Смотреть трейлер</h6>
 								</a>
 								<!-- dialog itself, mfp-hide class is required to make dialog hidden -->
 								<div id="small-dialog2" class="zoom-anim-dialog mfp-hide">
-									<iframe src="https://player.vimeo.com/video/395376850" allow="autoplay; fullscreen"
+									<iframe src="https://player.vimeo.com/video/850932177" allow="autoplay; fullscreen"
 										allowfullscreen=""></iframe>
 								</div>
 							</div>
@@ -156,18 +155,19 @@
 					<li>
 						<div class="slider-info banner-view banner-top2 bg bg2">
 							<div class="banner-info">
-								<h3>Latest Movie Trailers</h3>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<span class="over-para"> Consequuntur hic odio
-									voluptatem tenetur consequatur.</span></p>
+								<h3>Джокер</h3>
+								<p>Глубокий психологический портрет злодея, прекрасно исполненный Хоакином Фениксом,
+									раскрывающий мрак человеческой души.
+								</span></p>
 								<a href="#small-dialog3" class="popup-with-zoom-anim play-view1">
 									<span class="video-play-icon">
 										<span class="fa fa-play"></span>
 									</span>
-									<h6>Watch Trailer</h6>
+									<h6>Смотреть трейлер</h6>
 								</a>
 								<!-- dialog itself, mfp-hide class is required to make dialog hidden -->
 								<div id="small-dialog3" class="zoom-anim-dialog mfp-hide">
-									<iframe src="https://player.vimeo.com/video/389969665" allow="autoplay; fullscreen"
+									<iframe src="https://player.vimeo.com/video/774380160" allow="autoplay; fullscreen"
 										allowfullscreen=""></iframe>
 								</div>
 							</div>
@@ -178,18 +178,17 @@
 					<li>
 						<div class="slider-info banner-view banner-top3 bg bg2">
 							<div class="banner-info">
-								<h3>Latest Online Movies</h3>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<span class="over-para"> Consequuntur hic odio
-									voluptatem tenetur consequatur.</span></p>
+								<h3>Бэтмен</h3>
+								<p>Роберт Паттинсон в роли Брюса Уэйна, создает мрачный и одинокий образ вечного борца..</span></p>
 								<a href="#small-dialog4" class="popup-with-zoom-anim play-view1">
 									<span class="video-play-icon">
 										<span class="fa fa-play"></span>
 									</span>
-									<h6>Watch Trailer</h6>
+									<h6>Смотреть трейлер</h6>
 								</a>
 								<!-- dialog itself, mfp-hide class is required to make dialog hidden -->
 								<div id="small-dialog4" class="zoom-anim-dialog mfp-hide">
-									<iframe src="https://player.vimeo.com/video/323491174" allow="autoplay; fullscreen"
+									<iframe src="https://player.vimeo.com/video/671497889" allow="autoplay; fullscreen"
 										allowfullscreen=""></iframe>
 								</div>
 							</div>
@@ -219,7 +218,7 @@
 						<div class="box16">
 							<a href="{{ m.get_absolute_url }}">
 								<figure>
-									<img class="img-fluid" src="{{ m.poster.url }}" alt="">
+									<img  id="index-img" class="img-fluid" src="{{ m.poster.url }}" alt="poster">
 								</figure>
 								<div class="box-content">
 									<h3 class="title">{{ m.title }}</h3>
@@ -252,19 +251,19 @@
 						<div class="right-side">
 							<div class="row footer-about">
 								<div class="col-md-3 col-6 footer-img mb-lg-0 mb-4">
-									<a href="genre.html"><img class="img-fluid" src="{% static 'images/banner2.jpg' %}"
+									<a href="#"><img class="img-fluid" src="{% static 'images/banner2.jpg' %}"
 											alt=""></a>
 								</div>
 								<div class="col-md-3 col-6 footer-img mb-lg-0 mb-4">
-									<a href="genre.html"><img class="img-fluid" src="{% static 'images/banner1.jpg' %}"
+									<a href="#"><img class="img-fluid" src="{% static 'images/banner1.jpg' %}"
 											alt=""></a>
 								</div>
 								<div class="col-md-3 col-6 footer-img mb-lg-0 mb-4">
-									<a href="genre.html"><img class="img-fluid" src="{% static 'images/banner4.jpg' %}"
+									<a href="#"><img class="img-fluid" src="{% static 'images/banner4.jpg' %}"
 											alt=""></a>
 								</div>
 								<div class="col-md-3 col-6 footer-img mb-lg-0 mb-4">
-									<a href="genre.html"><img class="img-fluid" src="{% static 'images/banner3.jpg' %}"
+									<a href="#"><img class="img-fluid" src="{% static 'images/banner3.jpg' %}"
 											alt=""></a>
 								</div>
 							</div>
@@ -272,31 +271,28 @@
 
 
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Movies</h6>
+									<h6>Категории</h6>
 									<ul>
-										<li><a href="#">Фильмы</a></li>
-										<li><a href="#">Сериалы</a></li>
-										<li><a href="#">Аниме</a></li>
-										<li><a href="#">Мультфильмы</a></li>
+										<li>{% for c in cat %}<a href="{{ c.get_absolute_url }}">{{ c.name }}</a>{% endfor %}</li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Information</h6>
+									<h6>Навигация</h6>
 									<ul>
 										<li><a href="index.html">Главная</a> </li>
 										<li><a href="#">Блог</a> </li>
-										<li><a href="contact.html">Контакты</a></li>
+										<li><a href="{% url 'home' %}">О нас</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Locations</h6>
+									<h6>Локации</h6>
 									<ul>
-										<li><a href="genre.html">Азия</a></li>
-										<li><a href="genre.html">Франция</a></li>
-										<li><a href="genre.html">Тайвань</a></li>
-										<li><a href="genre.html">США</a></li>
-										<li><a href="genre.html">Корея</a></li>
-										<li><a href="genre.html">Великобритания</a></li>
+										<li><a href="#">Азия</a></li>
+										<li><a href="#">Франция</a></li>
+										<li><a href="#">Тайвань</a></li>
+										<li><a href="#">США</a></li>
+										<li><a href="#">Корея</a></li>
+										<li><a href="#">Великобритания</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
@@ -319,8 +315,7 @@
 				<div class="container">
 					<div class="copyright-footer">
 						<div class="columns text-lg-left">
-							<p>&copy; 2020 ProShowz. All rights reserved | Designed by <a
-									href="https://w3layouts.com">W3layouts</a></p>
+							<p>&copy; 2024 GenCinema</p>
 						</div>
 
 						<ul class="social text-lg-right">

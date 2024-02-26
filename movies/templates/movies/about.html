@@ -6,10 +6,9 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>ProShowz a Entertainment Category Bootstrap Responsive Website Template | About
-	:: W3layouts</title>
+	<title>Gen Cinema - О нас</title>
 	<!-- Template CSS -->
-	<link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	<!-- Template CSS -->
 	<link href="//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap"
 		rel="stylesheet">
@@ -22,7 +21,7 @@
 			<!--/nav-->
 			<nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
 				<div class="container">
-					<h1><a class="navbar-brand" href="index.html"><span class="fa fa-play icon-log" aria-hidden="true"></span>
+					<h1><a class="navbar-brand" href="{% url 'home' %}"><span class="fa fa-play icon-log" aria-hidden="true"></span>
 						GenCinema </a></h1>
 					<!-- if logo is image enable this   
 								<a class="navbar-brand" href="#index.html">
@@ -39,7 +38,7 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto">
 							<li class="nav-item">
-								<a class="nav-link" href="index.html">Главная</a>
+								<a class="nav-link" href="{% url 'home' %}">Главная</a>
 							</li>
 							<li class="nav-item dropdown active">
 								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -47,14 +46,13 @@
 									Категории <span class="fa fa-angle-down"></span>
 								</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<a class="dropdown-item" href="genre.html">Фильмы</a>
-									<a class="dropdown-item" href="genre.html">Сериалы</a>
-									<a class="dropdown-item" href="genre.html">Аниме</a>
-									<a class="dropdown-item" href="genre.html">Мультфильмы</a>
+									{% for c in cat %}
+									<a class="dropdown-item" href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+									{% endfor %}
 								</div>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="about.html">О нас</a>
+								<a class="nav-link" href="{% url 'about' %}">О нас</a>
 							</li>
 						</ul>
 	
@@ -108,7 +106,7 @@
 	<div class="w3l-breadcrumbs">
 		<nav id="breadcrumbs" class="breadcrumbs">
 			<div class="container page-wrapper">
-			<a href="index.html">Главная</a> » <span class="breadcrumb_last" aria-current="page">О нас</span>
+			<a href="{% url 'home' %}">Главная</a> » <span class="breadcrumb_last" aria-current="page">О нас</span>
 			</div>
 		</nav>
 	</div>
@@ -118,229 +116,69 @@
 		<div class="container py-lg-4">
 			<div class="row ab-grids-sec align-items-center">
 				<div class="col-lg-6 ab-right">
-					<img class="img-fluid" src="assets/images/banner1.jpg">
+					<img class="img-fluid" src="{% static 'images/banner1.jpg' %}">
 				</div>
 				<div class="col-lg-6 ab-left pl-lg-4 mt-lg-0 mt-5">
-					<h3 class="hny-title">Great Entertainment</h3>
-					<p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam id quisquam ipsam
-						molestiae ad eius accusantium? Nulla dolorem perferendis inventore! posuere cubilia Curae;
-						Nunc non risus in justo convallis feugiat.</p>
-					<div class="ready-more mt-4">
-						<a href="#" class="btn read-button">Read More <span class="fa fa-angle-double-right ml-2" aria-hidden="true"></span></a>
-					</div>
+					<h3 class="hny-title">Коротко о нас</h3>
+					<p class="mt-3">Добро пожаловать в GenCinema – ваш персональный билет в мир невероятных эмоций и кинематографических приключений!
+						Мы не просто онлайн кинотеатр, мы - кинемагия в каждом кадре.
+						<br>
+						С GenCinema ваш вечер станет настоящим шедевром, а ваше киноискусство – вдохновением.
+						Добро пожаловать в GenCinema, где каждый фрейм – как драгоценный камень, а каждый зритель – наша звезда!
+					</p>
+
 				</div>
 			</div>
-		   
-			<div class="w3l-counter-stats-info text-center">
-				<div class="stats_left">
-					<div class="counter_grid">
-						<div class="icon_info">
-							<p class="counter">65</p>
-							<h4>Movies</h4>
 
-						</div>
-					</div>
-				</div>
-				<div class="stats_left">
-					<div class="counter_grid">
-						<div class="icon_info">
-							<p class="counter">165</p>
-							<h4>Shows</h4>
 
-						</div>
-					</div>
-				</div>
-				<div class="stats_left">
-					<div class="counter_grid">
-						<div class="icon_info">
-							<p class="counter">463</p>
-							<h4>Members</h4>
-
-						</div>
-					</div>
-				</div>
-				<div class="stats_left">
-					<div class="counter_grid">
-						<div class="icon_info">
-							<p class="counter">5063</p>
-							<h4>Year of Use</h4>
-
-						</div>
-					</div>
-				</div>
-			</div>
 
 		</div>
 	</div>
 	<!-- //about-->
 		
 </section>
-<!--//testimonials-->
-		<!--grids-sec2-->
 		<section class="w3l-grids">
 			<div class="grids-main py-5">
 				<div class="container py-lg-4">
 					<div class="headerhny-title">
 						<div class="w3l-title-grids">
 							<div class="headerhny-left">
-								<h3 class="hny-title">New Releases</h3>
+								<h3 class="hny-title">Последние фильмы</h3>
 							</div>
 							<div class="headerhny-right text-lg-right">
-								<h4><a class="show-title" href="genre.html">Show all</a></h4>
+								<h4><a class="show-title" href="{% url 'home' %}">Все</a></h4>
 							</div>
 						</div>
 					</div>
 					<div class="owl-three owl-carousel owl-theme">
+						{% for m in movies %}
 						<div class="item vhny-grid">
 							<div class="box16">
-								<a href="genre.html">
+								<a href="{{ m.get_absolute_url }}">
 									<figure>
-										<img class="img-fluid" src="assets/images/m12.jpg" alt="">
+										<img id="about-img" class="img-fluid" src="{{ m.poster.url }}" alt="poster" height="400px">
 									</figure>
 									<div class="box-content">
-										<h4> <span class="post"><span class="fa fa-clock-o"> </span> 2 Hr 4min
-	
-											</span>
-	
+										<h4> <span class="post"><span class="fa fa-clock-o"> </span> {{ m.time }}</span>
 											<span class="post fa fa-heart text-right"></span>
 										</h4>
 									</div>
 									<span class="fa fa-play video-icon" aria-hidden="true"></span>
 								</a>
 							</div>
-							<h3> <a class="title-gd" href="genre.html">The Hustle</a></h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+
+							<h3> <a class="title-gd" href="{{ m.get_absolute_url }}">{{ m.title }}</a></h3>
 							<div class="button-center text-center mt-4">
-								<a href="genre.html" class="btn watch-button">Watch now</a>
-							</div>
-	
-						</div>
-						<div class="item vhny-grid">
-							<div class="box16">
-								<a href="genre.html">
-									<figure>
-										<img class="img-fluid" src="assets/images/m11.jpg" alt="">
-									</figure>
-									<div class="box-content">
-	
-										<h4> <span class="post"><span class="fa fa-clock-o"> </span> 2 Hr 4min
-	
-											</span>
-	
-											<span class="post fa fa-heart text-right"></span>
-										</h4>
-									</div>
-									<span class="fa fa-play video-icon" aria-hidden="true"></span>
-								</a>
-							</div>
-							<h3> <a class="title-gd" href="genre.html">The Lego</a></h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-							<div class="button-center text-center mt-4">
-								<a href="genre.html" class="btn watch-button">Watch now</a>
+								<a href="{{ m.get_absolute_url }}" class="btn watch-button">Смотреть</a>
 							</div>
 						</div>
-						<div class="item vhny-grid">
-							<div class="box16">
-								<a href="genre.html">
-									<figure>
-										<img class="img-fluid" src="assets/images/m9.jpg" alt="">
-									</figure>
-									<div class="box-content">
-	
-										<h4> <span class="post"><span class="fa fa-clock-o"> </span> 2 Hr 4min
-	
-											</span>
-	
-											<span class="post fa fa-heart text-right"></span>
-										</h4>
-									</div>
-									<span class="fa fa-play video-icon" aria-hidden="true"></span>
-								</a>
-							</div>
-							<h3> <a class="title-gd" href="genre.html">Joker </a></h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-							<div class="button-center text-center mt-4">
-								<a href="genre.html" class="btn watch-button">Watch now</a>
-							</div>
-						</div>
-						<div class="item vhny-grid">
-							<div class="box16">
-								<a href="genre.html">
-									<figure>
-										<img class="img-fluid" src="assets/images/m8.jpg" alt="">
-									</figure>
-									<div class="box-content">
-	
-										<h4> <span class="post"><span class="fa fa-clock-o"> </span> 2 Hr 4min
-	
-											</span>
-	
-											<span class="post fa fa-heart text-right"></span>
-										</h4>
-									</div>
-									<span class="fa fa-play video-icon" aria-hidden="true"></span>
-								</a>
-							</div>
-							<h3> <a class="title-gd" href="genre.html">Toy story 4</a></h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-							<div class="button-center text-center mt-4">
-								<a href="genre.html" class="btn watch-button">Watch now</a>
-							</div>
-	
-						</div>
-						<div class="item vhny-grid">
-							<div class="box16">
-								<a href="genre.html">
-									<figure>
-										<img class="img-fluid" src="assets/images/m1.jpg" alt="">
-									</figure>
-									<div class="box-content">
-	
-										<h4> <span class="post"><span class="fa fa-clock-o"> </span> 2 Hr 4min
-	
-											</span>
-	
-											<span class="post fa fa-heart text-right"></span>
-										</h4>
-									</div>
-									<span class="fa fa-play video-icon" aria-hidden="true"></span>
-								</a>
-							</div>
-							<h3> <a class="title-gd" href="genre.html">Rocketman</a></h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-							<div class="button-center text-center mt-4">
-								<a href="genre.html" class="btn watch-button">Watch now</a>
-							</div>
-						</div>
-						<div class="item vhny-grid">
-							<div class="box16">
-								<a href="genre.html">
-									<figure>
-										<img class="img-fluid" src="assets/images/m2.jpg" alt="">
-									</figure>
-									<div class="box-content">
-	
-										<h4> <span class="post"><span class="fa fa-clock-o"> </span> 2 Hr 4min
-	
-											</span>
-	
-											<span class="post fa fa-heart text-right"></span>
-										</h4>
-									</div>
-									<span class="fa fa-play video-icon" aria-hidden="true"></span>
-								</a>
-							</div>
-							<h3> <a class="title-gd" href="genre.html">Doctor Sleep</a></h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-							<div class="button-center text-center mt-4">
-								<a href="genre.html" class="btn watch-button">Watch now</a>
-							</div>
-						</div>
+						{% endfor %}
 					</div>
 				</div>
-	
 			</div>
 		</section>
+
+</section>
 		<!--grids-sec2-->
 	<!-- footer-66 -->
 	<!-- footer-66 -->
@@ -352,19 +190,19 @@
 						<div class="right-side">
 							<div class="row footer-about">
 								<div class="col-md-3 col-6 footer-img mb-lg-0 mb-4">
-									<a href="genre.html"><img class="img-fluid" src="assets/images/banner1.jpg"
+									<a href="{% url 'home' %}"><img class="img-fluid" src="{% static 'images/banner1.jpg' %}"
 											alt=""></a>
 								</div>
 								<div class="col-md-3 col-6 footer-img mb-lg-0 mb-4">
-									<a href="genre.html"><img class="img-fluid" src="assets/images/banner2.jpg"
+									<a href="{% url 'home' %}"><img class="img-fluid" src="{% static 'images/banner2.jpg' %}"
 											alt=""></a>
 								</div>
 								<div class="col-md-3 col-6 footer-img mb-lg-0 mb-4">
-									<a href="genre.html"><img class="img-fluid" src="assets/images/banner3.jpg"
+									<a href="{% url 'home' %}"><img class="img-fluid" src="{% static 'images/banner3.jpg' %}"
 											alt=""></a>
 								</div>
 								<div class="col-md-3 col-6 footer-img mb-lg-0 mb-4">
-									<a href="genre.html"><img class="img-fluid" src="assets/images/banner4.jpg"
+									<a href="{% url 'home' %}"><img class="img-fluid" src="{% static 'images/banner4.jpg' %}"
 											alt=""></a>
 								</div>
 							</div>
@@ -372,24 +210,21 @@
 
 
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Movies</h6>
+									<h6>Категории</h6>
 									<ul>
-										<li><a href="#">Фильмы</a></li>
-										<li><a href="#">Сериалы</a></li>
-										<li><a href="#">Аниме</a></li>
-										<li><a href="#">Мультфильмы</a></li>
+										<li>{% for c in cat %}<a href="{{ c.get_absolute_url }}">{{ c.name }}</a>{% endfor %}</li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Information</h6>
+									<h6>Информация</h6>
 									<ul>
 										<li><a href="index.html">Главная</a> </li>
 										<li><a href="#">Блог</a> </li>
-										<li><a href="contact.html">Контакты</a></li>
+										<li><a href="{% url 'about' %}">О нас</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Locations</h6>
+									<h6>Локации</h6>
 									<ul>
 										<li><a href="genre.html">Азия</a></li>
 										<li><a href="genre.html">Франция</a></li>
@@ -419,8 +254,7 @@
 				<div class="container">
 					<div class="copyright-footer">
 						<div class="columns text-lg-left">
-							<p>&copy; 2020 ProShowz. All rights reserved | Designed by <a
-									href="https://w3layouts.com">W3layouts</a></p>
+							<p>&copy; 2024 Gen Cinema</a></p>
 						</div>
 
 						<ul class="social text-lg-right">

@@ -10,7 +10,7 @@ class Home(View):
     template_name = 'movies/index.html'
 
     def get(self, request):
-        movies = Movie.objects.all()
+        movies = Movie.objects.all().order_by('-pk')
         genre = Genre.objects.all()
         cat = Category.objects.all()
 
@@ -57,6 +57,20 @@ class ShowCategory(View):
             'movies': movies,
             'cat': cat,
 
+        }
+
+        return render(request, self.template_name, context)
+
+
+class About(View):
+    template_name = 'movies/about.html'
+
+    def get(self, request):
+        movies = Movie.objects.all().order_by('-pk')[:6]
+        cat = Category.objects.all()
+        context = {
+            'movies': movies,
+            'cat': cat,
         }
 
         return render(request, self.template_name, context)
