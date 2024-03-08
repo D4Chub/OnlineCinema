@@ -1,9 +1,8 @@
 from django.views.generic import ListView
-from rest_framework import generics
 from django.shortcuts import render, get_object_or_404
 from django.views import View
 
-from movies.models import *
+from .models import *
 
 
 class Home(View):

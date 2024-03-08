@@ -64,7 +64,6 @@ class Category(Person):
     def __str__(self):
         return self.name
 
-
 class Movie(models.Model):
 
     class Meta:
