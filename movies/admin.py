@@ -11,11 +11,13 @@ class MovieAdmin(admin.ModelAdmin):
     search_fields = ('title',)
     prepopulated_fields = {'slug': ('title',)}
     def logo(self, obj):
+        if not obj.poster:
+            return None
         if obj.poster.url:
             return format_html(f"""
             <div style="        
             height:150px;
-            width:50x; 
+            width:100px; 
             background-image:url({obj.poster.url});
             background-size:cover;        
             margin:auto;">        
