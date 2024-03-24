@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views import View
 from rest_framework import generics
 from .models import *
-from .serializers import MovieSerializer
+
 
 class Home(View):
     template_name = 'movies/index.html'
@@ -105,9 +105,8 @@ class Search(ListView):
         return context
     
 
-class MovieAPIList(generics.ListCreateAPIView):
-    queryset = Movie.objects.all()
-    serializer_class = MovieSerializer
+
+
 
 
  
